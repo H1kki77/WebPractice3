@@ -1,4 +1,4 @@
-/* ЗАГАЛЬНІ СТИЛІ */
+
 body {
   margin: 0;
   font-family: 'SF Pro Display', Helvetica, Arial, sans-serif;
@@ -8,7 +8,6 @@ body {
 
 .container {
   display: grid;
-  /* На ПК: Хедер, Контент, Футер */
   grid-template-rows: auto 1fr auto; 
   width: 90%;
   max-width: 1200px;    
@@ -25,16 +24,12 @@ body {
 
 img { max-width: 100%; height: auto; display: block; margin: 15px auto; }
 
-/* Кольори (з попередніх лаб) */
 header#block-1, footer#block-7 { background-color: #CAD8EF; }
 #block-2, #block-4 { background: #e2f0d9; }
 #block-3 { background: #ffffff; }
 #block-5, #block-6 { background: #f7e8e1; }
 
 
-/* --- DESKTOP ВЕРСІЯ (Для ноутбуків) --- */
-
-/* Хедер справа */
 header#block-1 {
   display: grid;
   justify-content: end;
@@ -47,7 +42,6 @@ header#block-1 h1 {
   margin: 0;
 }
 
-/* Основна сітка (4 колонки) */
 .content {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -56,14 +50,12 @@ header#block-1 h1 {
   row-gap: 20px;
 }
 
-/* Складне розташування на ПК */
 #block-2 { grid-column: 1; grid-row: 1; }
 #block-3 { grid-column: 2; grid-row: 1; }
-#block-4 { grid-column: 3; grid-row: 1 / 3; } /* Високий */
-#block-5 { grid-column: 4; grid-row: 1 / 3; } /* Високий */
-#block-6 { grid-column: 1 / 3; grid-row: 2; } /* Широкий знизу */
+#block-4 { grid-column: 3; grid-row: 1 / 3; } 
+#block-5 { grid-column: 4; grid-row: 1 / 3; } 
+#block-6 { grid-column: 1 / 3; grid-row: 2; } 
 
-/* Футер */
 footer#block-7 {
   display: flex;
   justify-content: space-between;
@@ -79,55 +71,47 @@ footer#block-7 ul { margin: 0; padding: 0; list-style: none; display: flex; gap:
 footer#block-7 a { text-decoration: none; color: inherit; }
 
 
-/* --- МОБІЛЬНА ВЕРСІЯ (Для смартфонів) --- */
-/* Спрацьовує, якщо ширина екрану менше 768 пікселів */
 @media (max-width: 768px) {
   
-  /* 1. Змінюємо контейнер */
+
   .container {
-    width: 95%; /* Трохи ширше на телефоні */
-    gap: 15px;  /* Менші відступи */
+    width: 95%; 
+    gap: 15px;  
   }
 
-  /* 2. Перебудовуємо сітку в ОДНУ колонку */
   .content {
-    grid-template-columns: 1fr; /* Одна колонка на всю ширину */
-    row-gap: 15px; /* Відступ між блоками */
+    grid-template-columns: 1fr; 
+    row-gap: 15px;
   }
 
-  /* 3. Скидаємо складне позиціювання */
-  /* Всі блоки тепер йдуть просто по черзі: 2, 3, 4, 5, 6 */
   #block-2, #block-3, #block-4, #block-5, #block-6 { 
       grid-column: auto; 
       grid-row: auto; 
   }
 
-  /* 4. Адаптуємо Хедер */
   header#block-1 {
-    justify-content: center; /* Центруємо */
+    justify-content: center; 
     text-align: center;
   }
   header#block-1 h1 {
-    font-size: 1.2rem; /* Зменшуємо шрифт заголовка */
+    font-size: 1.2rem; 
     padding: 10px;
   }
 
-  /* 5. Адаптуємо Футер */
   footer#block-7 {
-    flex-direction: column; /* Елементи один під одним */
+    flex-direction: column;
     text-align: center;
     gap: 15px;
   }
   
   footer#block-7 ul {
-    flex-direction: column; /* Меню теж вертикально */
+    flex-direction: column; 
     gap: 10px;
   }
   
-  /* Робимо посилання зручнішими для пальця */
   footer#block-7 li {
     padding: 5px 0;
-    border-bottom: 1px solid #ddd; /* Розділювач */
+    border-bottom: 1px solid #ddd; 
     width: 100%;
   }
 }
